@@ -216,8 +216,12 @@ export class WeatherComponent implements OnInit {
         this.loadForecast();
       },
       error: (error) => {
-        this.currentWeather.set(null);
-        this.forecast.set([]);
+        // Use demo data when API fails (for demo purposes)
+        console.log('API failed, using demo data:', error.message);
+        this.currentWeather.set(DEMO_WEATHER);
+        this.forecast.set(DEMO_FORECAST);
+        this.loading.set(false);
+        this.error.set('Using demo data - Configure your OpenWeatherMap API key for live data');
       }
     });
   }
