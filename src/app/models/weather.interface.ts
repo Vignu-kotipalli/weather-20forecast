@@ -22,12 +22,12 @@ export interface WeatherResponse {
     gust?: number;
   };
   rain?: {
-    '1h'?: number;
-    '3h'?: number;
+    "1h"?: number;
+    "3h"?: number;
   };
   snow?: {
-    '1h'?: number;
-    '3h'?: number;
+    "1h"?: number;
+    "3h"?: number;
   };
   clouds: {
     all: number;
@@ -98,10 +98,10 @@ export interface ForecastItem {
   visibility: number;
   pop: number;
   rain?: {
-    '3h': number;
+    "3h": number;
   };
   snow?: {
-    '3h': number;
+    "3h": number;
   };
   sys: {
     pod: string;

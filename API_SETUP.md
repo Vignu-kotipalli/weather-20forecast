@@ -27,14 +27,16 @@ For production, use environment variables:
    - `src/environments/environment.prod.ts`
 
 2. Add your API key:
+
 ```typescript
 export const environment = {
   production: false,
-  openWeatherMapApiKey: 'your_api_key_here'
+  openWeatherMapApiKey: "your_api_key_here",
 };
 ```
 
 3. Update the service to use environment:
+
 ```typescript
 import { environment } from '../../environments/environment';
 
