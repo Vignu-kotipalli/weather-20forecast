@@ -3,12 +3,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { WeatherResponse, ForecastResponse, DailyForecast, ForecastItem } from '../models/weather.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  private readonly API_KEY = 'demo_key'; // User should replace with their API key
+  private readonly API_KEY = environment.openWeatherMapApiKey;
   private readonly BASE_URL = 'https://api.openweathermap.org/data/2.5';
   
   private loadingSubject = new BehaviorSubject<boolean>(false);
