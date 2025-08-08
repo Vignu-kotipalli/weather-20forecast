@@ -67,43 +67,43 @@ import { ForecastCardComponent } from './forecast-card.component';
           <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 md:p-8 mb-8 border border-white/20 animate-slide-up">
             <div class="text-center">
               <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
-                {{ currentWeather()?.name }}, {{ currentWeather()?.sys.country }}
+                {{ currentWeather()?.name }}, {{ currentWeather()?.sys?.country }}
               </h2>
               <p class="text-white/80 mb-6">{{ getCurrentDateTime() }}</p>
-              
+
               <div class="flex flex-col md:flex-row items-center justify-center gap-8">
                 <div class="flex items-center">
-                  <img 
-                    [src]="weatherService.getWeatherIconUrl(currentWeather()!.weather[0].icon)"
-                    [alt]="currentWeather()!.weather[0].description"
+                  <img
+                    [src]="currentWeather()?.weather?.[0]?.icon ? weatherService.getWeatherIconUrl(currentWeather()!.weather[0].icon) : ''"
+                    [alt]="currentWeather()?.weather?.[0]?.description || ''"
                     class="w-24 h-24 md:w-32 md:h-32 animate-bounce-slow"
                   />
                   <div class="ml-4">
                     <div class="text-5xl md:text-7xl font-bold text-white">
-                      {{ Math.round(currentWeather()!.main.temp) }}°C
+                      {{ currentWeather()?.main?.temp ? Math.round(currentWeather()!.main.temp) : 0 }}°C
                     </div>
                     <div class="text-white/80 text-lg capitalize">
-                      {{ currentWeather()!.weather[0].description }}
+                      {{ currentWeather()?.weather?.[0]?.description || '' }}
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="grid grid-cols-2 gap-4 text-center">
                   <div class="bg-white/10 rounded-xl p-4">
                     <div class="text-white/60 text-sm">Feels like</div>
-                    <div class="text-white text-xl font-semibold">{{ Math.round(currentWeather()!.main.feels_like) }}°C</div>
+                    <div class="text-white text-xl font-semibold">{{ currentWeather()?.main?.feels_like ? Math.round(currentWeather()!.main.feels_like) : 0 }}°C</div>
                   </div>
                   <div class="bg-white/10 rounded-xl p-4">
                     <div class="text-white/60 text-sm">Humidity</div>
-                    <div class="text-white text-xl font-semibold">{{ currentWeather()!.main.humidity }}%</div>
+                    <div class="text-white text-xl font-semibold">{{ currentWeather()?.main?.humidity || 0 }}%</div>
                   </div>
                   <div class="bg-white/10 rounded-xl p-4">
                     <div class="text-white/60 text-sm">Wind Speed</div>
-                    <div class="text-white text-xl font-semibold">{{ Math.round(currentWeather()!.wind.speed) }} m/s</div>
+                    <div class="text-white text-xl font-semibold">{{ currentWeather()?.wind?.speed ? Math.round(currentWeather()!.wind.speed) : 0 }} m/s</div>
                   </div>
                   <div class="bg-white/10 rounded-xl p-4">
                     <div class="text-white/60 text-sm">Pressure</div>
-                    <div class="text-white text-xl font-semibold">{{ currentWeather()!.main.pressure }} hPa</div>
+                    <div class="text-white text-xl font-semibold">{{ currentWeather()?.main?.pressure || 0 }} hPa</div>
                   </div>
                 </div>
               </div>
