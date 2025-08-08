@@ -199,10 +199,12 @@ export class WeatherComponent implements OnInit {
     // Subscribe to loading and error states
     this.weatherService.loading$.subscribe(loading => this.loading.set(loading));
     this.weatherService.error$.subscribe(error => this.error.set(error));
-    
-    // Load default city
+
+    // Load demo data initially
     this.searchCity = 'London';
-    this.searchWeather();
+    this.currentWeather.set(DEMO_WEATHER);
+    this.forecast.set(DEMO_FORECAST);
+    this.error.set('Demo mode - Configure your OpenWeatherMap API key for live data');
   }
 
   searchWeather() {
