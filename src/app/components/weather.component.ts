@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { WeatherService } from '../services/weather.service';
 import { WeatherResponse, DailyForecast } from '../models/weather.interface';
 import { ForecastCardComponent } from './forecast-card.component';
+import { DEMO_WEATHER, DEMO_FORECAST } from '../data/demo-weather.data';
 
 @Component({
   selector: 'app-weather',
